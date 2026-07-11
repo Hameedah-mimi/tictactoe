@@ -20,6 +20,8 @@ class _GridPageState extends State<GridPage> {
     }
     setState(() {
       xPlayerTurn = !xPlayerTurn;
+      board.add(value);
+      print(board);
     });
   }
 
