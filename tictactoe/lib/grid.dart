@@ -11,17 +11,15 @@ class _GridPageState extends State<GridPage> {
   List<String> board = List.generate(9, (index) => "");
   bool xPlayerTurn = true;
   String value = "X";
-
-  void onContainerTap() {
-    if (!xPlayerTurn) {
-      setState(() {
-        value = "O";
-      });
-    }
+  void onContainerTap(int index) {
     setState(() {
+      if (xPlayerTurn && board[index] == '') {
+        board[index] = "X";
+      } else if (!xPlayerTurn && board[index] == "") {
+        board[index] = "O";
+      }
+
       xPlayerTurn = !xPlayerTurn;
-      board.add(value);
-      print(board);
     });
   }
 
@@ -62,7 +60,9 @@ class _GridPageState extends State<GridPage> {
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: onContainerTap,
+                      onTap: () {
+                        onContainerTap(index);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
