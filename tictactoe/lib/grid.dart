@@ -9,6 +9,19 @@ class GridPage extends StatefulWidget {
 
 class _GridPageState extends State<GridPage> {
   List<String> board = List.generate(9, (index) => "");
+  bool xPlayerTurn = true;
+  String value = "X";
+
+  void onContainerTap() {
+    if (!xPlayerTurn) {
+      setState(() {
+        value = "O";
+      });
+    }
+    setState(() {
+      xPlayerTurn = !xPlayerTurn;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +41,8 @@ class _GridPageState extends State<GridPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "Player X's Turn",
+              Text(
+                "Player $value's Turn",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
 
@@ -47,7 +60,7 @@ class _GridPageState extends State<GridPage> {
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: onContainerTap,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
