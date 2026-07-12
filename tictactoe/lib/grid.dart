@@ -18,7 +18,6 @@ class _GridPageState extends State<GridPage> {
       } else if (!xPlayerTurn && board[index] == "") {
         board[index] = "O";
       }
-
       xPlayerTurn = !xPlayerTurn;
     });
   }
