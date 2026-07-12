@@ -19,7 +19,19 @@ class _GridPageState extends State<GridPage> {
         board[index] = "O";
       }
       xPlayerTurn = !xPlayerTurn;
+      winner();
     });
+  }
+
+  void winner() {
+    if (board[0] == board[1] && board[1] == board[2]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
   }
 
   @override
