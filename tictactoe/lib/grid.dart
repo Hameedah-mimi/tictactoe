@@ -24,70 +24,85 @@ class _GridPageState extends State<GridPage> {
   }
 
   void winner() {
-    if (board[0] == board[1] && board[1] == board[2]) {
+    if (board[0] == board[1] && board[1] == board[2] && !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-    if (board[3] == board[4] && board[4] == board[5]) {
+    } else if (board[3] == board[4] &&
+        board[4] == board[5] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-    if (board[6] == board[7] && board[7] == board[8]) {
+    } else if (board[6] == board[7] &&
+        board[7] == board[8] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-    if (board[0] == board[3] && board[3] == board[6]) {
+    } else if (board[0] == board[3] &&
+        board[3] == board[6] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-    if (board[1] == board[4] && board[4] == board[7]) {
+    } else if (board[1] == board[4] &&
+        board[4] == board[7] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-    if (board[2] == board[5] && board[5] == board[8]) {
+    } else if (board[2] == board[5] &&
+        board[5] == board[8] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-
-    if (board[0] == board[4] && board[4] == board[8]) {
+    } else if (board[0] == board[4] &&
+        board[4] == board[8] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
-    }
-    if (board[2] == board[4] && board[4] == board[6]) {
+    } else if (board[2] == board[4] &&
+        board[4] == board[6] &&
+        !board.contains('')) {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(content: Text("Player wins"));
+          return AlertDialog(content: Text("$winner wins!"));
         },
       );
+      } else {
+        if (!board.contains('')) {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return const AlertDialog(content: Text("Game over: Draw"));
+            },
+          );
+        }
     }
   }
 
