@@ -32,6 +32,63 @@ class _GridPageState extends State<GridPage> {
         },
       );
     }
+    if (board[3] == board[4] && board[4] == board[5]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
+    if (board[6] == board[7] && board[7] == board[8]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
+    if (board[0] == board[3] && board[3] == board[6]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
+    if (board[1] == board[4] && board[4] == board[7]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
+    if (board[2] == board[5] && board[5] == board[8]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
+
+    if (board[0] == board[4] && board[4] == board[8]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
+    if (board[2] == board[4] && board[4] == board[6]) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(content: Text("Player wins"));
+        },
+      );
+    }
   }
 
   @override
