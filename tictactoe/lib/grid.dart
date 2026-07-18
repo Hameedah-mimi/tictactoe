@@ -323,7 +323,6 @@ class _GridPageState extends State<GridPage> {
                       board = List.generate(9, (index) {
                         // gameOver = false;
                         onContainerTap(index);
-                        print('restarted');
                         return "";
                       });
                     });
