@@ -13,6 +13,7 @@ class _GridPageState extends State<GridPage> {
   bool xPlayerTurn = true;
   String value = "X";
   bool gameOver = false;
+  bool xStartNextRound = true;
 
   int xScore = 0;
   int oScore = 0;
@@ -39,9 +40,14 @@ class _GridPageState extends State<GridPage> {
   void winner() {
     if (board[0] == board[1] && board[1] == board[2] && board[0] != "") {
       gameOver = true;
-      gameOver = true;
 
-      board[0] == "X" ? xScore++ : oScore++;
+      if (board[0] == "X") {
+        xScore++;
+        xPlayerTurn = false;
+      } else {
+        oScore++;
+        xPlayerTurn = true;
+      }
 
       showDialog(
         context: context,
@@ -50,7 +56,6 @@ class _GridPageState extends State<GridPage> {
         },
       );
     } else if (board[3] == board[4] && board[4] == board[5] && board[3] != "") {
-      gameOver = true;
       gameOver = true;
 
       board[3] == "X" ? xScore++ : oScore++;
@@ -123,7 +128,6 @@ class _GridPageState extends State<GridPage> {
       );
     } else if (board[2] == board[4] && board[4] == board[6] && board[2] != "") {
       gameOver = true;
-      gameOver = true;
 
       board[2] == "X" ? xScore++ : oScore++;
 
@@ -143,6 +147,17 @@ class _GridPageState extends State<GridPage> {
         },
       );
     }
+  }
+
+  void restart() {
+    setState(() {
+      board = List.generate(9, (index) {
+        xPlayerTurn = xStartNextRound;
+        xPlayerTurn == true ? value = "X" : value = "O";
+        gameOver = false;
+        return "";
+      });
+    });
   }
 
   @override
@@ -318,15 +333,7 @@ class _GridPageState extends State<GridPage> {
               SizedBox(
                 width: 180,
                 child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      board = List.generate(9, (index) {
-                        // gameOver = false;
-                        onContainerTap(index);
-                        return "";
-                      });
-                    });
-                  },
+                  onPressed: restart,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurple,
                     elevation: 10,
